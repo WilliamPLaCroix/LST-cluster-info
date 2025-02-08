@@ -1,0 +1,10 @@
+# Read more about SSH config files: https://linux.die.net/man/5/ssh_config
+
+Host login
+    HostName login.lst.uni-saarland.de
+    User YOURUSERNAME
+
+Host submit
+    HostName submit
+    ProxyJump login
+    User YOURUSERNAME
