@@ -1,0 +1,20 @@
+# HTCondor submit description file
+# Everything with a leading # is a comment
+
+### Comment out docker for now. Unless you know what you're doing, it's just an extra headache
+#universe                = docker
+#docker_image            = docker.coli.uni-saarland.de/YOURUSERNAME/thesis:lora_baseline
+
+initialdir              = /nethome/YOURUSERNAME/
+
+### comment out the executable line until after you have conda installed.
+#executable              = /nethome/YOURUSERNAME/Thesis-Project/run.sh
+
+output                  = /scratch/YOURUSERNAME/logs/run.sh.$(ClusterId).$(Year)_$(Month)_$(Day)_$(SUBMIT_TIME).out
+error                   = /scratch/YOURUSERNAME/logs/err/run.sh.$(ClusterId).$(Year)_$(Month)_$(Day)_$(SUBMIT_TIME).err
+log                     = /scratch/YOURUSERNAME/logs/log/run.sh.$(ClusterId).$(Year)_$(Month)_$(Day)_$(SUBMIT_TIME).log
+request_CPUs            = 1
+request_memory          = 10G
+request_GPUs            = 1
+requirements            = (GPUs_GlobalMemoryMb >= 16000)
+queue 1
